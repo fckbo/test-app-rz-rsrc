@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app1
+  labels:
+    app: test-app1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-app1
+  template:
+    metadata:
+      labels:
+        app: test-app1
+    spec:
+      containers:
+      - name: nginx
+        image: webserver-image:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-app1-svc
+spec:
+  type: NodePort
+  selector:
+    app: test-app1
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30010
