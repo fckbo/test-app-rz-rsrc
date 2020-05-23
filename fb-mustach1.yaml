@@ -1,0 +1,19 @@
+apiVersion: "deploy.razee.io/v1alpha1"
+kind: MustacheTemplate
+metadata:
+  name: fb-mustach1
+  namespace: test-mustache
+spec:
+  env:
+  - name: sample-app-version
+    value: "v2"
+  templates:
+  - apiVersion: "deploy.razee.io/v1alpha1"
+    kind: RemoteResource
+    metadata:
+      name: test-app-rr-mustache
+      namespace: test-mustache
+    spec:
+      requests:
+      - options:
+          url: https://raw.githubusercontent.com/fckbo/test-app-rz-rsrc/{{sample-app-version}}/test-app.yaml
