@@ -2,8 +2,8 @@ apiVersion: "deploy.razee.io/v1alpha1"
 kind: RemoteResource
 metadata:
   name: test-app-rsc
-  namespace: razeedeploy
+  namespace: test-app-remote
 spec:
   requests:
     - options:
-        url: https://raw.githubusercontent.com/fckbo/test-app-rz-rsrc/master/test-app.yaml
+        url: https://github.com/fckbo/test-app-rz-rsrc/blob/master/test-app.yaml
