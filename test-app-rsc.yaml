@@ -6,4 +6,4 @@ metadata:
 spec:
   requests:
     - options:
-        url: https://raw.githubusercontent.com/fckbo/test-app-rz-rsrc/master/test-app.yaml
+        url: https://raw.githubusercontent.com/fckbo/test-app-rz-rsrc/v2/test-app.yaml
